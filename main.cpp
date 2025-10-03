@@ -16,7 +16,7 @@ void output(Node *);
 // deleteNodeAt(): deletes node at given position
 // arguments: reference to a pointer of Node linked list
 // returns: nothing
-void deletNodeAt(Node*&);
+void deleteNodeAt(Node*&);
 
 // insertNode(): inserts node after given after given position
 // arguments: reference to a pointer of Node linked list, as well as the position to be deleted
@@ -61,6 +61,10 @@ int main() {
         }
     }
     output(head);
+    
+    // Call functions
+    deleteNodeAt(head);
+    insertNode(head);
 
     return 0;
 }
@@ -87,6 +91,20 @@ void deleteNodeAt(Node* & head){
     int entry;
     cout << "Choice --> ";
     cin >> entry;
+
+    // Am getting an error when trying to delete at position 1 or 0, need to make some protection
+    if(entry <= 0){
+        cout << "Invalid entry.\n\n";
+        return;
+    }
+
+    if(entry == 1){
+        Node * x = head;
+        head = head->next;
+        delete x;
+        output(head);
+        return;
+    }
 
     // traverse that many times and delete that node
     current = head;
