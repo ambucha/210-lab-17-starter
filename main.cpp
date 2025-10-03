@@ -14,14 +14,14 @@ struct Node {
 void output(Node *);
 
 // deleteNodeAt(): deletes node at given position
-// arguments: reference to a pointer of Node linked list, as well as the position to be deleted
+// arguments: reference to a pointer of Node linked list
 // returns: nothing
-void deletNodeAt(Node*&, int);
+void deletNodeAt(Node*&);
 
 // insertNode(): inserts node after given after given position
 // arguments: reference to a pointer of Node linked list, as well as the position to be deleted
 // returns: nothing
-void insertNode(Node*&, int);
+void insertNode(Node*&);
 
 // deleteList(): deletes the linked list
 // arguments: reference to a pointer of Node linked list
@@ -62,6 +62,24 @@ int main() {
     }
     output(head);
 
+    return 0;
+}
+
+void output(Node * hd) {
+    if (!hd) {
+        cout << "Empty list.\n";
+        return;
+    }
+    int count = 1;
+    Node * current = hd;
+    while (current) {
+        cout << "[" << count++ << "] " << current->value << endl;
+        current = current->next;
+    }
+    cout << endl;
+}
+
+void deleteNodeAt(Node* & head){
     // deleting a node
     Node * current = head;
     cout << "Which node to delete? " << endl;
@@ -87,11 +105,15 @@ int main() {
         current = nullptr;
     }
     output(head);
+}
 
+
+void insertNode(Node*& head){
     // insert a node
-    current = head;
+    Node * current = head;
     cout << "After which node to insert 10000? " << endl;
-    count = 1;
+    int count = 1;
+    int entry;
     while (current) {
         cout << "[" << count++ << "] " << current->value << endl;
         current = current->next;
@@ -100,6 +122,7 @@ int main() {
     cin >> entry;
 
     current = head;
+    Node *prev = head;
     prev = head;
     for (int i = 0; i < (entry); i++)
         if (i == 0)
@@ -114,9 +137,11 @@ int main() {
     newnode->next = current;
     prev->next = newnode;
     output(head);
+}
 
+void deleteList(Node*& head){
     // deleting the linked list
-    current = head;
+    Node * current = head;
     while (current) {
         head = current->next;
         delete current;
@@ -124,20 +149,5 @@ int main() {
     }
     head = nullptr;
     output(head);
-
-    return 0;
 }
 
-void output(Node * hd) {
-    if (!hd) {
-        cout << "Empty list.\n";
-        return;
-    }
-    int count = 1;
-    Node * current = hd;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
-    cout << endl;
-}
