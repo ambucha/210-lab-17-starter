@@ -13,6 +13,17 @@ struct Node {
 
 void output(Node *);
 
+// deleteNodeAt(): deletes node at given position
+// arguments: reference to a pointer of Node linked list, as well as the position to be deleted
+// returns: nothing
+void deletNodeAt(Node*&, int);
+
+// insertNode(): inserts node after given after given position
+// arguments: 
+// returns: 
+void insertNode(Node*&, int);
+
+
 int main() {
     Node *head = nullptr;
     int count = 0;
