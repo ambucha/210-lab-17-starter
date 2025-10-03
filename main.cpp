@@ -19,9 +19,24 @@ void output(Node *);
 void deletNodeAt(Node*&, int);
 
 // insertNode(): inserts node after given after given position
-// arguments: 
-// returns: 
+// arguments: reference to a pointer of Node linked list, as well as the position to be deleted
+// returns: nothing
 void insertNode(Node*&, int);
+
+// deleteList(): deletes the linked list
+// arguments: reference to a pointer of Node linked list
+// returns : nothing
+void deleteList(Node*&);
+
+// backAdd(): adds value to the tail of the linked list
+// arguments: reference to a pointer of Node linked list, value
+// returns: nothign
+void backAdd(Node*&, int);
+
+// backAdd(): adds value to the head of the linked list
+// arguments: reference to a pointer of Node linked list, value
+// returns: nothing
+void frontAdd(Node*&, int);
 
 
 int main() {
