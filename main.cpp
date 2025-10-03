@@ -66,7 +66,9 @@ int main() {
     deleteNodeAt(head);
     insertNode(head);
     frontAdd(head);
+    output(head);
     backAdd(head);
+    output(head);
     deleteList(head);
 
     return 0;
@@ -184,7 +186,6 @@ void frontAdd(Node*& head){
     current->value = x;
     current->next = head;
     head = current;
-    output(head);
 }
 
 void backAdd(Node*& head){
@@ -205,5 +206,4 @@ void backAdd(Node*& head){
         current = current->next;
     }
     current->next = z;
-    output(head);
 }
