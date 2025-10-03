@@ -1,3 +1,6 @@
+// COMSC-210 | Lab 17 | Andrei Buchatskiy
+// IDE used : Visual Studio Code
+
 #include <iostream>
 using namespace std;
 
