@@ -29,14 +29,14 @@ void insertNode(Node*&);
 void deleteList(Node*&);
 
 // backAdd(): adds value to the tail of the linked list
-// arguments: reference to a pointer of Node linked list, value
+// arguments: reference to a pointer of Node linked list
 // returns: nothign
-void backAdd(Node*&, int);
+void backAdd(Node*&);
 
 // backAdd(): adds value to the head of the linked list
-// arguments: reference to a pointer of Node linked list, value
+// arguments: reference to a pointer of Node linked list
 // returns: nothing
-void frontAdd(Node*&, int);
+void frontAdd(Node*&);
 
 
 int main() {
@@ -65,6 +65,9 @@ int main() {
     // Call functions
     deleteNodeAt(head);
     insertNode(head);
+    frontAdd(head);
+    backAdd(head);
+    deleteList(head);
 
     return 0;
 }
@@ -169,3 +172,38 @@ void deleteList(Node*& head){
     output(head);
 }
 
+void frontAdd(Node*& head){
+    float x;
+
+    // prompt for value
+    cout << "Enter value to add to front of the list: ";
+    cin >> x;
+
+    // add value to front
+    Node* current = new Node();
+    current->value = x;
+    current->next = head;
+    head = current;
+    output(head);
+}
+
+void backAdd(Node*& head){
+    float x;
+
+    // prompt for value
+    cout << "Enter value to add to back of the list: ";
+    cin >> x;
+
+    // make a node for the value
+    Node * z = new Node();
+    z->value = x;
+    z->next = nullptr;
+
+    // Add value to the back
+    Node* current = head;
+    while(current->next){
+        current = current->next;
+    }
+    current->next = z;
+    output(head);
+}
